@@ -30,7 +30,6 @@ canvas {
     position: relative;
     top: -75px;
     left: 444px;
-    width: 100%;
     pointer-events: none;
     z-index: -1;
 }
