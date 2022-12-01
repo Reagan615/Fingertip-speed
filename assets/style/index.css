@@ -23,14 +23,22 @@ main {
 }
 
 .container {
-    position: relative;
     margin-top: 150px;
+    position: relative;
     width: min(100% - 30px, 1080px);
+    height: 100vh;
     margin-inline: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+#text {
+    color: #fff;
+    font-size: 20px;
+    width: 80vw;
+    line-height: 1.5;
 }
 
 .title span h1 {
@@ -103,6 +111,7 @@ main {
     display: flex;
     flex-direction: column;
     margin-top: 30px;
+    z-index: 999;
 }
 
 .enter input {
@@ -164,6 +173,7 @@ main {
 .detail {
     position: relative;
     margin-top: 30px;
+    z-index: 999;
 }
 
 .point {
@@ -198,6 +208,25 @@ main {
 }
 
 .control .start button {
+    width: 130px;
+    height: 40px;
+    font-size: 20px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+     7px 7px 20px 0px rgba(0,0,0,.1),
+     4px 4px 5px 0px rgba(0,0,0,.1);
+    outline: none;
+    background-image: linear-gradient(135deg,#1de5e2,#b588f7);
+    border: none;
+}
+
+.reset {
     width: 130px;
     height: 40px;
     font-size: 20px;
@@ -276,6 +305,7 @@ main {
     border-top: 1px solid rgba(255, 255, 255, 0.5);
     border-left: 1px solid rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(5px);
+    z-index: 999;
 }
 
 .result span {
