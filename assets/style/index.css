@@ -1,0 +1,301 @@
+@import "./reset.css";
+ 
+:root {
+ --app-dark-bg: #1a1d28;
+ --app-red: #ff3c57;
+ --app-green: #33ab4e;
+ --app-purple: #833cff;
+ --app-orange: #ff833c;
+ --app-blue: #3c57ff;
+ --app-blue-hover: #364ee6;
+}
+
+body {
+    background-color: #1a1d28;
+
+}
+
+main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    position: relative;
+    margin-top: 150px;
+    width: min(100% - 30px, 1080px);
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title span h1 {
+    font-family: 'Rubik Distressed', cursive;
+    font-size: 60px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.2px;
+    background-image: -webkit-linear-gradient(135deg,#1de5e2,#b588f7);
+    -webkit-background-clip:text; 
+    -webkit-text-fill-color:transparent; 
+
+}
+
+.gamezone {
+    width: 100%;
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.time {
+    margin-right: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border-right: 3px solid #000;
+    border-bottom: 3px solid #000;
+    border-left: 7px solid #000;
+    border-top: 7px solid #000;
+}
+
+.time .timer {
+    position: relative;
+    
+}
+
+.timer span {
+    font-size: 30px;
+    color: #a3aeba;
+    font-family: 'Anton', sans-serif;
+}
+
+.core {
+    display: flex;
+    flex-direction: column;
+}
+
+.remind span {
+    width: 300px;
+    height: 60px;
+    display: inline-block;
+    text-align: center;
+    line-height: 60px;
+    font-size: 30px;
+    color: #b2b2b2;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 26px 30px -10px, rgba(0, 0, 0, 0.1) 0px 16px 10px -10px;
+}
+
+.enter {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.enter input {
+    width: 300px;
+    height: 60px;
+    color: #fff;
+    font-size: 30px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 26px 30px -10px, rgba(0, 0, 0, 0.1) 0px 16px 10px -10px;
+}
+
+.enter input::-webkit-input-placeholder{
+	color:#999;
+	font-size:18px;
+}
+
+.enter .correct {
+    visibility: hidden;
+    position: relative;
+    left: 80px;
+    color: #33ab4e;
+    margin-top: 5px;
+}
+
+.enter .incorrect {
+    visibility: hidden;
+    position: relative;
+    top: -23px;
+    left: 40px;
+    color: #ff3c57;
+}
+
+.error {
+    width: 300px;
+    height: 60px;
+    color: #fff;
+    font-size: 30px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 26px 30px -10px, rgba(0, 0, 0, 0.1) 0px 16px 10px -10px;
+    animation: shake 0.82s /* cubic-bezier(.36, .07, .19, .97) both */;
+}
+
+@keyframes shake {
+              10%, 90% {transform: translate3d(-1px, 0, 0);}
+
+              20%, 80% {transform: translate3d(2px, 0, 0);}
+              
+              30%, 50%, 70% {transform: translate3d(-4px, 0, 0);}
+
+              40%, 60% {transform: translate3d(4px, 0, 0);}
+}
+
+.detail {
+    position: relative;
+    margin-top: 30px;
+}
+
+.point {
+    margin-left: 100px;
+}
+
+.detail h2 {
+    font-size: 26px;
+    color: #a3aeba;
+    font-family: 'Rubik Distressed', cursive;
+    font-weight: 300;
+}
+
+.detail span {
+    position: relative;
+    left: 24px;
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 26px;
+    color: #a3aeba;
+    font-family: 'Rubik Distressed', cursive;
+    font-weight: 300;
+}
+
+.control {
+    position: relative;
+    left: 15px;
+    width: 45%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+.control .start button {
+    width: 130px;
+    height: 40px;
+    font-size: 20px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+     7px 7px 20px 0px rgba(0,0,0,.1),
+     4px 4px 5px 0px rgba(0,0,0,.1);
+    outline: none;
+    background-image: linear-gradient(135deg,#1de5e2,#b588f7);
+    border: none;
+}
+
+.start button:before {
+    height: 0%;
+    width: 2px;
+}
+
+.start button:hover {
+    box-shadow:  /* 4px 4px 6px 0 rgba(255,255,255,.5), */
+                /* -4px -4px 6px 0 rgba(116, 125, 136, .5),  */
+    inset -4px -4px 6px 0 rgba(255,255,255,.2),
+    inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
+}
+
+
+.control .restart button {
+    width: 130px;
+    height: 40px;
+    font-size: 20px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-block;
+    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+     7px 7px 20px 0px rgba(0,0,0,.1),
+     4px 4px 5px 0px rgba(0,0,0,.1);
+    outline: none;
+    background: radial-gradient(circle, rgba(29,229,226,1) 0%, rgba(181,136,247,1) 100%);
+    border: none;
+}
+
+.restart button:before {
+    height: 0%;
+    width: 2px;
+}
+
+.restart button:hover {
+    box-shadow:  /* 4px 4px 6px 0 rgba(255,255,255,.5), */
+                /* -4px -4px 6px 0 rgba(116, 125, 136, .5),  */
+    inset -4px -4px 6px 0 rgba(255,255,255,.2),
+    inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
+}
+
+.result {
+    visibility: hidden;
+    position: relative;
+    width: 300px;
+    height: 320px;
+    top: -400px;
+    left: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin: 30px;
+    border-radius: 15px;
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.result span {
+    margin-left: 20px;
+    margin-top: 20px;
+    font-size: 26px;
+    font-family: 'Rubik Distressed', cursive;
+    font-weight: 300;
+    background-image: -webkit-linear-gradient(135deg,#1de5e2,#b588f7);
+    -webkit-background-clip:text; 
+    -webkit-text-fill-color:transparent; 
+}
+
+.result span + span {
+    margin-top: 20px;
+}
+
+
+
+
+
+
+
