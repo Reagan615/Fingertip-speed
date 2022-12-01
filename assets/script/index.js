@@ -116,6 +116,7 @@ btn1.addEventListener('click', function() {
         if (i === 0) {
            const score = new Score(newDate, arr2.length, (arr2.length / 90 * 100).toFixed(2));
            clearInterval(t);
+           showWord.innerHTML = 'Welcome to try again!';
            second.innerHTML = 'Time UP!';
            second.style.fontSize = '40px';
            result.style.visibility = 'visible';
