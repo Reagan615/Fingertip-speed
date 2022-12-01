@@ -52,14 +52,15 @@ class Score {
 };
 const score = new Score(newDate, arr2.length, (arr2.length / 99 * 100).toFixed(2));
 
-let j = 1;
+
 btn1.addEventListener('click', function() {
+    let j = 1;
     arr2.splice(0, arr2.length);
     points.innerHTML = `90 / ${arr2.length}`
     let random = Math.floor(Math.random()* (5 - j));
     let word = arr[random];
     var t = setInterval(countDown, 1000);
-    let i = 10
+    let i = 30;
     showWord.style.color = '#FFF';
     showWord.innerHTML = word;
     btn1.setAttribute("disabled", true);
@@ -118,7 +119,6 @@ btn1.addEventListener('click', function() {
             showWord.innerHTML = 'Good job!';
             const score = new Score(newDate, arr2.length, (arr2.length / 99 * 100).toFixed(2));
             clearInterval(t);
-            console.log(resultDate.innerHTML);
             second.innerHTML = 'Time UP!';
             second.style.fontSize = '40px';
             result.style.visibility = 'visible';
@@ -142,7 +142,6 @@ btn1.addEventListener('click', function() {
         };
         showWord.innerHTML = 'Press start button';
         showWord.style.color = '#b2b2b2';
-        let j = 1;
         arr2.splice(0, arr2.length);
         points.innerHTML = `90 / ${arr2.length}`;
         second.innerHTML = '<span>Countdown <br>99 seconds</span>';
@@ -150,6 +149,7 @@ btn1.addEventListener('click', function() {
         second.style.fontFamily = `'Anton', sans-serif`;
         tips1.style.visibility = 'hidden';
         tips2.style.visibility = 'hidden';
+        result.style.visibility = 'hidden';
 
         
     });
