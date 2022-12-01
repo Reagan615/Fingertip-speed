@@ -14,7 +14,20 @@ let result = document.querySelector('.result');
 let resultDate = document.querySelector('.result .date');
 let resultHit = document.querySelector('.result .hit');
 let resultPer = document.querySelector('.result .percentage');
-let arr = ['dinosaur', 'love', 'pineapple', 'calendar', 'robot'];
+let arr = ['dinosaur', 'love', 'pineapple', 'calendar', 'robot', 'building', 'population', 
+'weather', 'bottle', 'history', 'dream', 'character', 'money', 'absolute', 
+'discipline', 'machine', 'accurate', 'connection', 'rainbow', 'bicycle', 
+'eclipse', 'calculator', 'trouble', 'watermelon', 'developer', 'philosophy', 
+'database', 'periodic', 'capitalism', 'abominable', 'component', 'future', 
+'pasta', 'microwave', 'jungle', 'wallet', 'canada', 'coffee', 'beauty', 'agency', 
+'chocolate', 'eleven', 'technology', 'alphabet', 'knowledge', 'magician', 
+'professor', 'triangle', 'earthquake', 'baseball', 'beyond', 'evolution', 
+'banana', 'perfumer', 'computer', 'management', 'discovery', 'ambition', 'music', 
+'eagle', 'crown', 'chess', 'laptop', 'bedroom', 'delivery', 'enemy', 'button',
+'superman', 'library', 'unboxing', 'bookstore', 'language', 'homework', 
+'fantastic', 'economy', 'interview', 'awesome', 'challenge', 'science', 'mystery', 
+'famous', 'league', 'memory', 'leather', 'planet', 'software', 'update', 'yellow', 
+'keyboard', 'window'];
 let arr2 = [];
 const bgMusic = new Audio('assets/audio/bgMusic.mp3');
 bgMusic.type = 'audio/mp3';
@@ -57,10 +70,10 @@ btn1.addEventListener('click', function() {
     let j = 1;
     arr2.splice(0, arr2.length);
     points.innerHTML = `90 / ${arr2.length}`
-    let random = Math.floor(Math.random()* (5 - j));
+    let random = Math.floor(Math.random()* (90 - j));
     let word = arr[random];
     var t = setInterval(countDown, 1000);
-    let i = 30;
+    let i = 99;
     showWord.style.color = '#FFF';
     showWord.innerHTML = word;
     btn1.setAttribute("disabled", true);
@@ -79,12 +92,10 @@ btn1.addEventListener('click', function() {
                 enterWord.setAttribute('class', 'input');
                 tips1.style.visibility = 'visible';
                 tips2.style.visibility = 'hidden';
-                random = Math.floor(Math.random()* (5 - j));
+                random = Math.floor(Math.random()* (90 - j));
                 word = arr[random];
                 showWord.innerHTML = word;
                 correct.play();
-                console.log(arr);
-                console.log(arr2);
                 j++;
             } else {
                 enterWord.setAttribute('class', 'error'); 
@@ -103,7 +114,7 @@ btn1.addEventListener('click', function() {
         second.style.fontFamily = `'Rubik Distressed', cursive`;
         
         if (i === 0) {
-           const score = new Score(newDate, arr2.length, (arr2.length / 99 * 100).toFixed(2));
+           const score = new Score(newDate, arr2.length, (arr2.length / 90 * 100).toFixed(2));
            clearInterval(t);
            second.innerHTML = 'Time UP!';
            second.style.fontSize = '40px';
@@ -115,9 +126,9 @@ btn1.addEventListener('click', function() {
            failure.play();
         }
 
-        if(arr2.length == 5) {
+        if(arr2.length == 90) {
             showWord.innerHTML = 'Good job!';
-            const score = new Score(newDate, arr2.length, (arr2.length / 99 * 100).toFixed(2));
+            const score = new Score(newDate, arr2.length, (arr2.length / 90 * 100).toFixed(2));
             clearInterval(t);
             second.innerHTML = 'Time UP!';
             second.style.fontSize = '40px';
@@ -149,9 +160,7 @@ btn1.addEventListener('click', function() {
         second.style.fontFamily = `'Anton', sans-serif`;
         tips1.style.visibility = 'hidden';
         tips2.style.visibility = 'hidden';
-        result.style.visibility = 'hidden';
-
-        
+        result.style.visibility = 'hidden'; 
     });
 });
 
