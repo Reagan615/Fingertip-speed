@@ -1,13 +1,13 @@
 @import "./reset.css";
- 
+
 :root {
- --app-dark-bg: #1a1d28;
- --app-red: #ff3c57;
- --app-green: #33ab4e;
- --app-purple: #833cff;
- --app-orange: #ff833c;
- --app-blue: #3c57ff;
- --app-blue-hover: #364ee6;
+    --app-dark-bg: #1a1d28;
+    --app-red: #ff3c57;
+    --app-green: #33ab4e;
+    --app-purple: #833cff;
+    --app-orange: #ff833c;
+    --app-blue: #3c57ff;
+    --app-blue-hover: #364ee6;
 }
 
 body {
@@ -25,22 +25,28 @@ body {
     background: linear-gradient(#1de5e2,#b588f7);
     clip-path: circle(30% at right 70%);
 } */
-
-canvas {
-    position: relative;
-    top: -75px;
-    left: 444px;
-    pointer-events: none;
-    z-index: -1;
-}
-
 main {
     position: relative;
     width: 100%;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
+#canvas {
+    position: absolute;
+    width: 1707px;
+    height: 800px;
+    top: 50%;
+    left: 50%;
+    margin-top: -400px;
+    margin-left: -854px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+
 
 /* main::before {
     content: '';
@@ -54,18 +60,17 @@ main {
 } */
 
 .container {
-    margin-top: 150px;
-    position: relative;
-    top: 0px;
-    left: -880px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     width: min(100% - 30px, 1080px);
-    height: 100vh;
-    margin-inline: auto;
+    height: 600px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    z-index: 999;
+    z-index: 1;
 }
 
 .title span h1 {
@@ -74,9 +79,9 @@ main {
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.2px;
-    background-image: -webkit-linear-gradient(135deg,#1de5e2,#b588f7);
-    -webkit-background-clip:text; 
-    -webkit-text-fill-color:transparent; 
+    background-image: -webkit-linear-gradient(135deg, #1de5e2, #b588f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 
 }
 
@@ -109,7 +114,7 @@ main {
 
 .time .timer {
     position: relative;
-    
+
 }
 
 .timer span {
@@ -157,18 +162,21 @@ main {
     box-shadow: rgba(0, 0, 0, 0.1) 0px 26px 30px -10px, rgba(0, 0, 0, 0.1) 0px 16px 10px -10px;
 }
 
-.enter input::-webkit-input-placeholder{
-	color:#999;
-	font-size:16px;
+.enter input::-webkit-input-placeholder {
+    color: #999;
+    font-size: 16px;
 }
 
-.enter input::-moz-placeholder{/*Mozilla Firefox 4 to 8*/
-	color:#999;
-	font-size:16px;
+.enter input::-moz-placeholder {
+    /*Mozilla Firefox 4 to 8*/
+    color: #999;
+    font-size: 16px;
 }
-.enter input:-moz-placeholder{/*Mozilla Firefox 19+*/
-	color:#999;
-	font-size:16px;
+
+.enter input:-moz-placeholder {
+    /*Mozilla Firefox 19+*/
+    color: #999;
+    font-size: 16px;
 }
 
 .enter .correct {
@@ -197,17 +205,33 @@ main {
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 4px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 26px 30px -10px, rgba(0, 0, 0, 0.1) 0px 16px 10px -10px;
-    animation: shake 0.82s /* cubic-bezier(.36, .07, .19, .97) both */;
+    animation: shake 0.82s
+        /* cubic-bezier(.36, .07, .19, .97) both */
+    ;
 }
 
 @keyframes shake {
-              10%, 90% {transform: translate3d(-1px, 0, 0);}
 
-              20%, 80% {transform: translate3d(2px, 0, 0);}
-              
-              30%, 50%, 70% {transform: translate3d(-4px, 0, 0);}
+    10%,
+    90% {
+        transform: translate3d(-1px, 0, 0);
+    }
 
-              40%, 60% {transform: translate3d(4px, 0, 0);}
+    20%,
+    80% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    30%,
+    50%,
+    70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+
+    40%,
+    60% {
+        transform: translate3d(4px, 0, 0);
+    }
 }
 
 .detail {
@@ -268,16 +292,9 @@ main {
     color: #fff;
     border-radius: 5px;
     padding: 10px 25px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    position: relative;
-    display: inline-block;
-    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
-     7px 7px 20px 0px rgba(0,0,0,.1),
-     4px 4px 5px 0px rgba(0,0,0,.1);
-    outline: none;
-    background-image: linear-gradient(135deg,#1de5e2,#b588f7);
-    border: none;
+    background: linear-gradient(to right, #03a9f4, #f441a5, #ffeb3b, #09a8f4);
+    background-size: 400%;
+    z-index: 1;
 }
 
 .reset {
@@ -291,26 +308,67 @@ main {
     transition: all 0.3s ease;
     position: relative;
     display: inline-block;
-    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
-     7px 7px 20px 0px rgba(0,0,0,.1),
-     4px 4px 5px 0px rgba(0,0,0,.1);
+    box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+        7px 7px 20px 0px rgba(0, 0, 0, .1),
+        4px 4px 5px 0px rgba(0, 0, 0, .1);
     outline: none;
-    background-image: linear-gradient(135deg,#1de5e2,#b588f7);
+    background-image: linear-gradient(135deg, #1de5e2, #b588f7);
     border: none;
 }
 
-.start button:before {
-    height: 0%;
-    width: 2px;
+.start button::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    bottom: -5px;
+    left: -5px;
+    right: 345px;
+    background: linear-gradient(to right, #03a9f4, #f441a5, #ffeb3b, #09a8f4);
+    background-size: 400%;
+    border-radius: 5px;
+    z-index: -1;
+    filter: blur(8px);
 }
 
 .start button:hover {
-    box-shadow:  /* 4px 4px 6px 0 rgba(255,255,255,.5), */
-                /* -4px -4px 6px 0 rgba(116, 125, 136, .5),  */
-    inset -4px -4px 6px 0 rgba(255,255,255,.2),
-    inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
+    animation: streamer 8s infinite;
 }
 
+.start button:hover::before {
+    animation: streamer 8s infinite;
+}
+
+@keyframes streamer {
+    100% {
+        background-position: -400% 0;
+    }
+}
+
+.control .restart2 button {
+    width: 130px;
+    height: 40px;
+    font-size: 20px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px;
+    background: #999;
+    background-size: 400%;
+    z-index: 1;
+    cursor: not-allowed;
+}
+
+.control .start2 button {
+    width: 130px;
+    height: 40px;
+    font-size: 20px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px;
+    background: #999;
+    background-size: 400%;
+    z-index: 1;
+    cursor: not-allowed;
+}
 
 .control .restart button {
     width: 130px;
@@ -319,38 +377,51 @@ main {
     color: #fff;
     border-radius: 5px;
     padding: 10px 25px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    display: inline-block;
-    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
-     7px 7px 20px 0px rgba(0,0,0,.1),
-     4px 4px 5px 0px rgba(0,0,0,.1);
-    outline: none;
-    background: radial-gradient(circle, rgba(29,229,226,1) 0%, rgba(181,136,247,1) 100%);
-    border: none;
+    background: linear-gradient(to right, #03a9f4, #f441a5, #ffeb3b, #09a8f4);
+    background-size: 400%;
+    z-index: 1;
 }
 
-.restart button:before {
-    height: 0%;
-    width: 2px;
+.restart button::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    bottom: -5px;
+    left: 345px;
+    right: -5px;
+    background: linear-gradient(to right, #03a9f4, #f441a5, #ffeb3b, #09a8f4);
+    background-size: 400%;
+    border-radius: 5px;
+    z-index: -1;
+    filter: blur(8px);
 }
 
 .restart button:hover {
-    box-shadow:  /* 4px 4px 6px 0 rgba(255,255,255,.5), */
-                /* -4px -4px 6px 0 rgba(116, 125, 136, .5),  */
-    inset -4px -4px 6px 0 rgba(255,255,255,.2),
-    inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
+    animation: streamer 8s infinite;
 }
+
+.restart button:hover::before {
+    animation: streamer 8s infinite;
+}
+
+@keyframes streamer {
+    100% {
+        background-position: -400% 0;
+    }
+}
+
+
 
 .result {
     visibility: hidden;
-    position: relative;
+    position: absolute;
+    top: 50%;
+    left: 50.5%;
+    margin-top: -160px;
+    margin-left: -150px;
     width: 300px;
     height: 320px;
-    top: -400px;
-    left: 10px;
     background-color: rgba(255, 255, 255, 0.1);
-    margin: 30px;
     border-radius: 15px;
     box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
     overflow: hidden;
@@ -359,7 +430,7 @@ main {
     border-top: 1px solid rgba(255, 255, 255, 0.5);
     border-left: 1px solid rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(5px);
-    z-index: 999;
+    z-index: 1;
 }
 
 .result span {
@@ -368,18 +439,125 @@ main {
     font-size: 26px;
     font-family: 'Rubik Distressed', cursive;
     font-weight: 300;
-    background-image: -webkit-linear-gradient(135deg,#1de5e2,#b588f7);
-    -webkit-background-clip:text; 
-    -webkit-text-fill-color:transparent; 
+    background-image: -webkit-linear-gradient(135deg, #1de5e2, #b588f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.result span + span {
+.result span+span {
     margin-top: 20px;
 }
 
+.score {
+    position: absolute;
+    top: 115px;
+    right: 25px;
+    width: 250px;
+    height: 700px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 999;
+}
 
+.score h2 {
+    margin-top: 20px;
+    background-image: -webkit-linear-gradient(135deg, #1de5e2, #b588f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 
+}
 
+.score span {
+    margin-top: 20px;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 0 40px;
+    background-image: -webkit-linear-gradient(135deg, #1de5e2, #b588f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 
+#firework {
+    display: block;
+}
 
+.hint {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-animation: fade-in 1s ease-out 1s forwards, fade-out 1s ease-out 5s forwards;
+    animation: fade-in 1s ease-out 1s forwards, fade-out 1s ease-out 5s forwards;
+}
 
+.hint>h1 {
+    font-size: 32px;
+    color: #fff;
+}
+
+@-webkit-keyframes fade-in {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    100% {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    100% {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+@-webkit-keyframes fade-out {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
